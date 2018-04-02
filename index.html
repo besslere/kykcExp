@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <link rel="icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="css/kykcExp.css"/>
+    <title>国际包裹查询，国际快递查询 － 快邮快查</title>
+</head>
+<body onload="keyUp();">
+    <!--顶部信息-->
+    <div class="topInfo">
+        <div class="container">
+            <!--LOGO-->
+            <div class="top">
+                <a class="logo" href="http://www.expecs.com/"></a>
+            </div>
+            <!--文字信息-->
+            <div class="exp">
+                <span>
+                    <b>*</b>
+                    提供各国邮政、DHL、UPS、FEDEX、等快递公司运单查询，累计查询：<span class="scrollNum"></span>
+                </span>
+            </div>
+            <!--多行文本框-->
+            <div class="search">
+                <div id="ol">
+                    <textarea id="li" cols="2" rows="10" disabled></textarea>
+                </div>
+                <textarea id="c2" name="co" class="texts" cols="40" rows="3" wrap="off" onblur="check('2')" onkeyup="keyUp()"
+                          onFocus="clearValue('2')"
+                          onscroll="G('li').scrollTop = this.scrollTop;" oncontextmenu="return false" placeholder="请输入正确快递单号,多个单号以换行分隔"></textarea>
+                <button class="searchBtn">API<br/>接口</button>
+                <button class="searchBtn">查询</button>
+            </div>
+            <em class="block" id="msg2"></em>
+        </div>
+    </div>
+    <!--Tab导航栏-->
+    <div class="navs">
+        <div class="navCtn">
+            <ul class="tab">
+                <li class="active">
+                    <a href="#">
+                        <i class="crt01"></i>
+                        <span>所有</span>
+                        <b>(0)</b>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="crt02"></i>
+                        <span>查询不到</span>
+                        <b>(0)</b>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="crt03"></i>
+                        <span>运输途中</span>
+                        <b>(0)</b>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="crt04"></i>
+                        <span>成功签收</span>
+                        <b>(0)</b>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="crt05"></i>
+                        <span>可能异常</span>
+                        <b>(0)</b>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--标题栏-->
+    <div class="title">
+        <ul>
+            <li>单号</li>
+            <li>状态</li>
+            <li>最新信息</li>
+        </ul>
+    </div>
+    <!--基本信息-->
+    <div class="titleShow">
+        <ul class="swOne">
+            <li class="dh">
+                <span>
+                    <img src="img/ups.png"/>
+                </span>
+                <p class="dhNum">LX962585050CN</p>
+                <p class="dhName">
+                    <span>未知</span>
+                </p>
+            </li>
+            <li class="cxInfo">查询不到</li>
+            <li class="endInfo">【广州市】投递并签收，签收人：本人收</li>
+            <span id="icon" class="icon"></span>
+        </ul>
+    </div>
+    <!--路线明细-->
+    <div id="route" class="route">
+        <span class="ck">查看线路明细</span>
+        <!--快件详情-->
+        <table class="resultInfo" cellspacing="0">
+            <tbody>
+            <tr class="last">
+                <td class="row1">
+                    <span>2016-12-10 15:33:00</span>
+                </td>
+                <td class="context">
+                    <a href="#">【广州市】</a>
+                    <span>投递并签收，签收人：本人收</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="row1">
+                    <span>2016-12-10 15:19:34</span>
+                </td>
+                <td class="context">
+                    <a href="#">【广州市】</a>
+                    <span>广东省邮政速递物流有限公司广州国际业务营业部安排投递，预计23:59:00前投递（投递员姓名：吴文飞;联系电话：）</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="row1">
+                    <span>2016-11-24 11:44:00</span>
+                </td>
+                <td class="context">
+                    <a href="#">【广州市】</a>
+                    <span>离开广州市 发往新西伯利亞</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="row1">
+                    <span>2016-11-24 04:24:00</span>
+                </td>
+                <td class="context">
+                    <a href="#">【广州市】</a>
+                    <span>海关放行</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="row1">
+                    <span>2016-11-24 04:23:00</span>
+                </td>
+                <td class="context">
+                    <a href="#">【广州市】</a>
+                    <span>送交海关</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="row1">
+                    <span>2016-11-23 22:22:00</span>
+                </td>
+                <td class="context">
+                    <a href="#">【广州市】</a>
+                    <span>广州市邮政速递物流公司国际分公司荔湾国际营业部已收件（揽投员姓名：邓军,联系电话:）</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <!--解决高度溢出问题-->
+        <div style="clear: both"></div>
+    </div>
+    <!--无法显示-->
+    <div class="error">
+        <p class="able">您的单号可能是:</p>
+        <ul class="erUl">
+            <li>
+                <img src="img/ups.png"/>
+                <span>UPS</span>
+            </li>
+            <li>
+                <img src="img/dhl.png"/>
+                <span>DHL</span>
+            </li>
+            <li>
+                <img src="img/fedex.png"/>
+                <span>Fedex</span>
+            </li>
+            <li>
+                <img src="img/tnt.png"/>
+                <span>TNT</span>
+            </li>
+            <li>
+                <img src="img/dhl.png"/>
+                <span>DPD</span>
+            </li>
+            <li>
+                <img src="img/uk.png"/>
+                <span>DPD (UK)</span>
+            </li>
+            <li>
+                <img src="img/oneworld.png"/>
+                <span>One World</span>
+            </li>
+            <li>
+                <img src="img/gls.png"/>
+                <span>GLS</span>
+            </li>
+        </ul>
+    </div>
+    <!--底部信息-->
+    <div class="footer">
+        <div class="ftInfo">
+            <span class="text">
+                © 2016 深圳市
+                <a href="#">快邮口岸科技</a>
+                有限公司 版权所有 粤ICP备13022611号-1
+            </span>
+        </div>
+    </div>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/index.js"></script>
+    <script type="text/javascript">
+        /*文本框显示行号*/
+        String.prototype.trim2 = function()
+        {
+            return this.replace(/(^\s*)|(\s*$)/g, "");
+        }
+        function F(objid){
+            return document.getElementById(objid).value;
+        }
+        function G(objid){
+            return document.getElementById(objid);
+        }
+        /*滚动数字*/
+        $('.scrollNum').numberRock({
+           speed:34,
+           count:197868
+        });
+    </script>
+</body>
+</html>
